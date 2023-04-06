@@ -25,7 +25,7 @@
     // 문자의 배열 char의 배열
     const str = "ABcd";
     // console.log(str.charAt(0)); //문자열 0번째 배열의 문자
-    // console.log(str.concat("e")); //뒤에 문자열 붙이기 
+    // console.log(str.concat("e")); //뒤에 문자열 합치기 
     // console.log(str.endsWith("d")); //가장 맨끝 문자열이 d로 끝나는지 true or false 
     // console.log(str.startsWith("A")); //A로 문자열이 시작하는지
     // console.log(str.includes("cd")); //문자열이 포함되었는지
@@ -44,7 +44,102 @@
     // console.log(str.padStart(10).replaceAll(" ",""));
     // console.log("aa aa".replaceAll(" ",""));
 
+    // 배열 메소드
+    const arr = ["A","B","C","d"];
+    // console.log(arr.concat("e","f")); //합치기
+    // console.log(arr.concat(["g"])); //배열 합치기
+
+    // console.log(arr.copyWithin(0,3,4));
+
+    // console.log(arr.fill("a")); //a로 다 채우기
+
+    // console.log([[1,2],[3,4]].flat()) //2차원 배열 -> 1차원 배열로
+
+    // console.log(arr.pop()); //맨 뒤 문자열 없애기
+    // console.log(arr);
+
+    // arr.push("e");
+    // console.log(arr);
+
+    // console.log(arr.shift());
+    // console.log(arr);
+    
+
+    // console.log(arr.splice(1,1)); //1번째의 1개 문자 지우기
+    // console.log(arr);
+
+    // const idx = arr.indexOf("D"); //D의 인덱스 => 3
+    // console.log(arr.splice(idx,1)); //arr.splice(3,1)
+    // console.log(arr);
+
+    // 콜백 함수
+    // callback
+
+    // const temp = () => console.log("Hello");
+    // const temp1 = () => console.log("Bye");
+
+    // const myFunc = (func) => {
+    //     // 작업 완료 시 외부 함수를 작동하고 싶다
+    //     // 외부 함수를 개발자가 선택하게 하고 싶다
+    //     console.log("Hi");
+    //     func();
+    // }
+    // myFunc(() => console.log("Hello"));
+    //     myFunc(() => console.log("Bye"));
 
 
+    // 중요!
+    // const checkName = (name, checker) => {
+    // const result = checker(name);
+    // console.log(result);
+    // }
+    // const tempName = "sebin";
+    // const temptChecher = (name) => {
+    //     return name.indexOf("a");
+    // }
 
+    // checkName(tempName,temptChecher);
+
+    //함수를 매개변수로 받는 배열 메소드
+    // forEach, filter, map, every, find , some, reduce
+
+    // for (let index = 0; index < arr.length; index++) {
+    //     console.log(arr[index]);
+    // }
+
+    // for(const item of arr){
+    //     console.log(item);
+    // }
+
+    // for(const key in arr){
+    //     console.log(arr[key]);
+    // }
+    
+    // arr.forEach(element => {});
+
+    // const callbackFn = (value, index, array) => {
+    //     console.log(value);
+    //     console.log(index);
+    //     console.log(array);
+    // }
+
+    // arr.forEach(value => console.log(value));
+
+    // console.log(arr.filter(value => value != "d")); //d만 아닌것을 걸러주세요
+    
+    const predicate = (value) =>{
+        return value == "d";
+    }
+    arr.filter(predicate)
+
+    // 객체  map과 array 메소드 map은 전혀 상관없다
+    // 기존 데이터를 변경하거나 타입을 바꿔서 배열을 만들 때 사용한다
+
+    const callback = (e) => {
+        // return e.repeat(3);
+        // return [e];
+        return arr.indexOf(e);
+    }
+    const result = arr.map(callback);
+    console.log(result);  
 </script>
