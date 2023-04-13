@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>제목11</h1>
+    <h1>제목22</h1>
+    <div id="myDiv">아이디</div>
+
+    <p class="my-div first">첫번째</p>
+    <p class="my-div second">두번째</p>
+</body>
+<script>
+    //html 컨트롤
+    const h1List = window.document.getElementsByTagName("h1"); //여러개 elements 중에서 가져옴
+    
+    const h1List2 = document.querySelectorAll("h1");
+
+    // console.log(h1List);
+    // console.log(h1List2.innerHTML);
+
+    const myDivElement = document.getElementById("myDiv");
+    // console.log(myDivElement);
+    
+    //querySelector 어떤 것을 가져올지 모르기 때문에 css 선택자를 이용
+    const myDivEl = document.querySelector("div[id*='']");
+    // console.log(myDivEl);
+
+    myDivElement.setAttribute("style","color:red;");
+    
+
+    //표준속성은 .으로 찾아서 입력
+    myDivElement.innerText = "바꿈";
+
+    // 비표준 속성은 setAtrribute 사용
+    myDivElement.setAttribute("asdf","메롱");
+
+    const pElementList = document.getElementsByClassName("my-div");
+    const pElementList1 = document.querySelectorAll(".my-div");
+    
+    pElementList1.forEach(element => {
+        console.log(element.innerText);
+    });
+
+    //속성 지정
+    myDivElement.setAttribute("style","color:blue;");
+    myDivElement.style.color="pink";
+
+    //태그 기능 추가
+    // 1. 태그의 속성에 기능 추가하기
+    const func = () =>{
+        alert("확인");
+    }
+
+    // 2. 태그 객체의 기능 정의 해주기
+    myDivElement.onclick = func;
+    myDivElement.onclick = null;
+
+    // (() => alert("체크"))();
+
+    // 3. 리스너 추가하기 addeventListener 기능 여러개 추가가능
+    myDivElement.addEventListener("click",func);
+    myDivElement.addEventListener("click",() =>{
+        alert("두번째확인");
+    });
+
+    myDivElement.removeEventListener("click",func);
+    myDivElement.removeEventListener("click",func);
+
+    //태그 만들기
+    const newElement = document.createElement("div");
+    newElement.innerText="자스로 만든 태그";
+    newElement.style.fontSize = "1.2rem";
+    newElement.style.color="blue";
+    
+    newElement.onclick = () => alert("WOW!");
+    document.body.appendChild(newElement);
+
+    //교체하기
+    const newElement1 = document.createElement("h2");
+    newElement1.innerText="교체 태그";
+    document.body.replaceChild(newElement1,newElement);
+
+    //삭제
+    document.body.removeChild(newElement1);
+
+    // 클래스 
+    const divElement = document.querySelector(".my-div");
+    console.log(divElement.className);
+    console.log(divElement.classList);
+
+    //divElement.className = "check-class"; // 클래스명을 바꿈
+    divElement.classList.add("check-class"); //기존 클래스명에 추가
+
+    // css 가져오기
+    console.log(myDivElement.style.color);
+    console.log(getComputedStyle(myDivElement).color);
+</script>
+</html>
