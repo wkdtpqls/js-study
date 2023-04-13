@@ -141,5 +141,48 @@
         return arr.indexOf(e);
     }
     const result = arr.map(callback);
-    console.log(result);  
+    // console.log(result);  
+
+    // 객체
+     const obj = {
+        // 객체가 가지고 있는 변수
+        //필드 or 프로퍼티
+            key1 : "value1",
+            // 객체가 가지고 있는 함수
+            // 메소드
+            key2(){
+                this.key1;
+            },
+            //객체는 객체를 프로퍼티로 가질 수 있다
+            key3 : {
+                sub1 : "subValue1"
+            }
+    }
+    obj?.key3?.subkey1;
+
+    //Date
+    // console.log(`Date.now() : ${Date.now()}`);
+
+    const myDate = new Date();
+    const tempDate = new Date('2023-01-01T12:00:00.000z');
+
+    // console.log(myDate);
+    // console.log(tempDate);
+
+    // console.log(`myDate.getFullYear() : ${myDate.getFullYear()}`);
+    // console.log(`myDate.getMonth() : ${myDate.getMonth()}`); //date객체는 0부터 1월 
+    // console.log(`myDate.getDate() : ${myDate.getDate()}`); 
+    // console.log(`myDate.getDay() : ${myDate.getDay()}`); //0~6 부터 일요일~토요일
+    // console.log(`myDate.toJson() : ${myDate.toJSON()}`);
+    // console.log(`myDate.toJson() : ${myDate.toISOString()}`);
+    myDate.getTime();
+
+    //navigator
+    window.location.href="";
+    location.href="";
+
+    const a = 1;
+    b=1;
+    console.log(window.a); //전역변수
+    // console.log(window.b);
 </script>
